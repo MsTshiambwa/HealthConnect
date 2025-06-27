@@ -1,0 +1,42 @@
+﻿
+a {
+    color: currentColor;
+    text-decoration: none;
+}
+
+.primary-color-text {
+    color: #4D4DA2;
+}
+
+.card {
+    padding: 35px 70px;
+    border-radius: 12px !important;
+    align-items: center;
+}
+
+.card .label {
+    width: 120px;
+}
+
+.card:hover {
+    background-color: #C9C9FF;
+    border: 0;
+}
+
+.card:hover a {
+    color: black !important;
+}
+
+.white-text {
+    color: white !important;
+}
+
+.bg-primary {
+    background-color: #4D4DA2 !important;
+    color: white !important;
+}
+
+.btn-outline-white {
+    border-color: white;
+    color: white;
+}

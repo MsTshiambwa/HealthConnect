@@ -1,0 +1,136 @@
+﻿@{
+    ViewData["Title"] = "Step 1";
+    Layout = "_CounsellingPatient";
+}
+
+@model Step1
+@using HealthConnect.Data.Classes
+<div class="text-center align-self-center" style="padding:10px">
+    <div class="card-header">
+        <h4><i class="fa-regular fa-square-check"></i> Step 1</h4>
+    </div>
+    <div class="text-center">
+        <small class="text-danger">*Any question left will default to a NO</small>
+    </div>
+    <form asp-action="Step1" method="post" class="card-body">
+        <div class="card-body">
+            <div class="mb-3 text-start">
+                <label class="form-label" asp-for="Question1"></label>
+                <div class="row" style="justify-content:center">
+                    <div class="col-3">
+                        <input type="radio" class="btn-check" asp-for="Question1" id="1" autocomplete="off" value="1">
+                        <label class="btn btn-outline-success" for="1">Yes</label>
+                    </div>
+                    <div class="col-3">
+                        <input type="radio" asp-for="Question1" class="btn-check" id="2" autocomplete="off" value="0">
+                        <label class="btn btn-outline-secondary" for="2">No</label>
+                    </div>
+                </div>
+                <span asp-validation-for="Question1" class="text-danger"></span>
+            </div>
+            <hr />
+            <div class="mb-3 text-start">
+                <label class="form-label" asp-for="Question2"></label>
+                <div class="row" style="justify-content:center">
+                    <div class="col-3">
+                        <input type="radio" class="btn-check" asp-for="Question2" id="3" autocomplete="off" value="1">
+                        <label class="btn btn-outline-success" for="3">Yes</label>
+                    </div>
+                    <div class="col-3">
+                        <input type="radio" asp-for="Question2" class="btn-check" id="4" autocomplete="off" value="0">
+                        <label class="btn btn-outline-secondary" for="4">No</label>
+                    </div>
+                </div>
+                <span asp-validation-for="Question2" class="text-danger"></span>
+            </div>
+            <hr />
+            <div class="mb-3 text-start">
+                <label class="form-label" asp-for="Question3"></label>
+                <div class="row" style="justify-content:center">
+                    <div class="col-3">
+                        <input type="radio" class="btn-check" asp-for="Question3" id="5" autocomplete="off" value="1">
+                        <label class="btn btn-outline-success" for="5">Yes</label>
+                    </div>
+                    <div class="col-3">
+                        <input type="radio" asp-for="Question3" class="btn-check" id="6" autocomplete="off" value="0">
+                        <label class="btn btn-outline-secondary" for="6">No</label>
+                    </div>
+                </div>
+                <span asp-validation-for="Question3" class="text-danger"></span>
+            </div>
+            <hr />
+            <div class="mb-3 text-start">
+                <label class="form-label" asp-for="Question4"></label>
+                <div class="row" style="justify-content:center">
+                    <div class="col-3">
+                        <input type="radio" class="btn-check" asp-for="Question4" id="7" autocomplete="off" value="1">
+                        <label class="btn btn-outline-success" for="7">Yes</label>
+                    </div>
+                    <div class="col-3">
+                        <input type="radio" asp-for="Question4" class="btn-check" id="8" autocomplete="off" value="0">
+                        <label class="btn btn-outline-secondary" for="8">No</label>
+                    </div>
+                </div>
+                <span asp-validation-for="Question4" class="text-danger"></span>
+            </div>
+            <hr />
+            <div class="mb-3 text-start">
+                <label class="form-label" asp-for="Question5"></label>
+                <div class="row" style="justify-content:center">
+                    <div class="col-3">
+                        <input type="radio" class="btn-check" asp-for="Question5" id="9" autocomplete="off" value="1">
+                        <label class="btn btn-outline-success" for="9">Yes</label>
+                    </div>
+                    <div class="col-3">
+                        <input type="radio" asp-for="Question5" class="btn-check" id="10" autocomplete="off" value="0">
+                        <label class="btn btn-outline-secondary" for="10">No</label>
+                    </div>
+                </div>
+                <span asp-validation-for="Question5" class="text-danger"></span>
+            </div>
+            <hr />
+            <div class="mb-3 text-start">
+                <label class="form-label" asp-for="Question6"></label>
+                <div class="row" style="justify-content:center">
+                    <div class="col-3">
+                        <input type="radio" class="btn-check" asp-for="Question6" id="11" autocomplete="off" value="1">
+                        <label class="btn btn-outline-success" for="11">Yes</label>
+                    </div>
+                    <div class="col-3">
+                        <input type="radio" asp-for="Question6" class="btn-check" id="12" autocomplete="off" value="0">
+                        <label class="btn btn-outline-secondary" for="12">No</label>
+                    </div>
+                </div>
+                <span asp-validation-for="Question6" class="text-danger"></span>
+            </div>
+            <hr />
+            <div class="mb-3 text-start">
+                <label class="form-label" asp-for="Question7"></label>
+                <div class="row" style="justify-content:center">
+                    <div class="col-3">
+                        <input type="radio" class="btn-check" asp-for="Question7" id="13" autocomplete="off" value="1">
+                        <label class="btn btn-outline-success" for="13">Yes</label>
+                    </div>
+                    <div class="col-3">
+                        <input type="radio" asp-for="Question7" class="btn-check" id="14" autocomplete="off" value="0">
+                        <label class="btn btn-outline-secondary" for="14">No</label>
+                    </div>
+                </div>
+                <span asp-validation-for="Question7" class="text-danger"></span>
+            </div>
+
+        </div>
+
+        <div class="card-footer text-body-secondary">
+            <div class="row gap-4 d-md-block">
+                <button class="btn btn-primary float-start col-md-4" type="submit">Next</button>
+                <button onclick="location.href='@Url.Action("Index","Dashboard")'" class="btn btn-danger col-md-4 float-end" type="button">Back to Dashboard</button>
+
+            </div>
+        </div>
+    </form>
+
+</div>
+<br />
+<br />
+<br />

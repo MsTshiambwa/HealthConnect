@@ -1,0 +1,124 @@
+﻿@{
+    ViewData["Title"] = "Register";
+    Layout = "_RegistrationLayout";
+}
+@model HealthConnect.Data.Classes.Register
+
+@if (TempData["Error"] != null)
+{
+    <br />
+    <br />
+    <div class="text-center row justify-content-center">
+        <div class="alert alert-danger w-50">
+            <h5>@TempData["Error"]</h5>
+        </div>
+    </div>
+}
+
+<div class="container">
+    <div>
+        <!--<img src="~/css/logo.png" width="666" style="margin-left:-108px" class="logo">-->
+    </div>
+    <form asp-action="Register" method="post" asp-controller="User">
+        <h2 class="L1">Register</h2>
+        <div asp-validation-summary="ModelOnly" style="color:red"></div>
+
+        <div class="Personal" style="float:left;">
+            <input asp-for="Name" type="text" class="Name" placeholder="First Name" required>
+            <br />
+            <span asp-validation-for="Name" style="color:red"></span>
+            <br /><br />
+
+            <input asp-for="EmailAddress" type="text" class="Surname" placeholder="Email Address" required>
+            <br />
+            <span asp-validation-for="EmailAddress" style="color:red"></span>
+            <br /><br />
+
+            <input asp-for="Password" type="password" class="Number" placeholder="Password" required>
+            <br />
+            <span asp-validation-for="Password" style="color:red"></span>
+            <br /><br />
+
+            <input asp-for="IDNumber" type="text" class="Number" placeholder="ID Number" required>
+            <br />
+            <span asp-validation-for="IDNumber" style="color:red"></span>
+            <br /><br />
+
+            <input asp-for="DateOfBirth" type="date" class="Name" placeholder="Date of Birth" required>
+            <br />
+            <span asp-validation-for="DateOfBirth" style="color:red"></span>
+            <br /><br />
+
+            
+        </div>
+
+        <div class="Personal" style="float:right; margin-left:18%;">
+            <input asp-for="Surname" type="text" class="Name" placeholder="Surname" required>
+            <br />
+            <span asp-validation-for="Surname" style="color:red"></span>
+            <br /><br />
+
+            <input asp-for="PhoneNumber" type="text" class="Surname" placeholder="Phone Number" required>
+            <br />
+            <span asp-validation-for="PhoneNumber" style="color:red"></span>
+            <br /><br />
+
+            <input asp-for="ConfirmPassword" type="password" class="Number" placeholder="Confirm Password" required>
+            <br />
+            <span asp-validation-for="ConfirmPassword" style="color:red"></span>
+            <br /><br />
+
+            <div class="custom-select" style="width:200px;">
+                <select asp-for="Gender" class="select" required>
+                    <option selected>Gender:</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select>
+                <br />
+                <span asp-validation-for="Gender" style="color:red"></span>
+            </div>
+            <br /><br />
+
+            <input asp-for="Address" type="text" class="Name" placeholder="Address Line 1" required>
+            <br />
+            <span asp-validation-for="Address" style="color:red"></span>
+            <br /><br />
+
+            <input asp-for="AreaCode" class="Name" type="text" placeholder="Area Code" required>
+            <br />
+            <span asp-validation-for="AreaCode" style="color:red"></span>
+            <br /><br />
+
+            <!-- Role Selection -->
+            <div class="custom-select" style="width:200px;">
+                <select asp-for="Role" class="select" required>
+                    <option selected>Choose Role:</option>
+                    <option value="Counselor">Counselor</option>
+                    <option value="Patient">Patient</option>
+                </select>
+                <br />
+                <span asp-validation-for="Role" style="color:red"></span>
+            </div>
+        </div>
+
+        <br /><br /><br />
+        <input asp-for="Department" value="Patient" hidden />
+        <input asp-for="Department" value="Counselor" hidden />
+        <input asp-for="IsActive" value="True" hidden />
+        <button type="submit" class="btnsignin" style="margin-top:4%">Submit</button>
+        <br /><br />
+    </form>
+
+    <div class="text-center mt-4">
+       
+        <input type="button" onclick="location.href='@Url.Action("Index", "User")'" class="btn btn-secondary btnsignin ml-3" value="Cancel" />
+    </div>
+</div>
+
+
+
+
+
+
+
+

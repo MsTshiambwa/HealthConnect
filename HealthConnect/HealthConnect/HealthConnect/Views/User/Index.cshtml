@@ -1,0 +1,37 @@
+﻿@{
+    Layout = "_IndexLayout";
+
+}
+@model HealthConnect.Data.Classes.Login
+<div class="container">
+    <div class="Nav-bar">
+        <!--<img class="logo" src="~/css/logo.png" alt="logo">-->
+        <a class="Home" href="#Home">Home</a>
+        <a class="About" href="#About">About</a>
+
+        <!--<a class="Contact" href="#Contact">Contact</a>-->
+        <a class="Register" asp-action="Register" asp-controller="User">Register</a>
+        <a class="Login" asp-action="Login" asp-controller="User">Log in</a>
+
+    </div>
+
+    <div class="body-section">
+        <div class="text">
+            <h1 class="h1">Be on <span>top</span> of<br> your Health.</h1>
+            <p class="paragraph">
+                Health Connect System offers you a unique and comprehensive range of private healthcare services and products<br>
+                across the healthcare spectrum, throughout South Africa. This enables us to provide you with care<br>
+                every step of your life journey.
+            </p>
+        </div>
+        <div class="btn-section">
+            <form method="get" asp-action="GetStarted">
+                <input asp-for=EmailAddress type="email" class="input-email" placeholder="Email address">
+                <button type="submit" class="btn">Get Started</button>
+            </form>
+
+
+        </div>
+    </div>
+
+</div>

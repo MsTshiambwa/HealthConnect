@@ -1,0 +1,49 @@
+*{
+    padding: auto;
+    margin: 0;
+    box-sizing: border-box;
+}
+.btnsignin{
+    border: none;
+    border-radius: 8px;
+    color: white;
+    background-color: #555577;
+    height: 33px;
+    width: 118px;
+    top: 451px;
+    left: 970px;
+    position: absolute;
+
+
+}
+
+.btnsignin:hover{
+    background-color: black;
+    color: whitesmoke;
+    cursor: pointer;
+}
+.Email{
+    height: 41px;
+    width: 294px;
+    top: 286px;
+    position: absolute;
+    left: 970px;
+}
+.password {
+    height: 41px;
+    width: 294px;
+    top: 375px;
+    left: 970px;
+    position: absolute;
+}
+.logo{
+    background-color: #555577;
+    height: 832px;
+    
+}
+
+.L1{
+    top: 402px;
+    left: 970PX;
+    position: absolute;
+}

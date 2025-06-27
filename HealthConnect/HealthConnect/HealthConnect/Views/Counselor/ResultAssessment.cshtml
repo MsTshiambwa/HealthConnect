@@ -1,0 +1,25 @@
+﻿@{
+    ViewData["Title"] = "Assessment Result";
+    Layout = "_CounsellingPatient";
+}
+
+@model CounselorAppointment
+@if (TempData["Result"] != null)
+{
+    <div class="alert alert-success text-center">
+        <h5 class="alert-heading">Assessment Results</h5>
+        <p>@TempData["Result"]</p>
+        <hr />
+        <p class="text-center"><button class="btn btn-outline-success" onclick="location.href='@Url.Action("Index","Counselor")'">Dashboard</button></p>
+    </div>
+}
+else
+{
+    <div class="alert alert-danger text-center">
+        <h5 class="alert-heading">Something went wrong.</h5>
+        <p>Please try again applying for an appointment.</p>
+        <hr />
+        <p class="text-center"><button class="btn btn-outline-success" onclick="location.href='@Url.Action("Index","Counselor")'">Dashboard</button></p>
+    </div>
+}
+

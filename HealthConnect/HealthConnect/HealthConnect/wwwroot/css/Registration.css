@@ -1,0 +1,97 @@
+* {
+    padding: auto;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+    font-family: 'Roboto', sans-serif;
+    
+}
+
+.btnsignin {
+    border: none;
+    border-radius: 8px;
+    color: white;
+    background-color: #555577;
+    height: 33px;
+    width: 118px;
+    top: 600px;
+    left: 970px;
+    position: absolute;
+}
+
+    .btnsignin:hover {
+        background-color: black;
+        color: whitesmoke;
+        cursor: pointer;
+    }
+
+.Email {
+    height: 41px;
+    width: 294px;
+    top: 461px;
+    position: absolute;
+    left: 970px;
+    cursor: pointer;
+}
+
+.password {
+    height: 41px;
+    width: 294px;
+    top: 530px;
+    left: 970px;
+    position: absolute;
+    cursor: pointer;
+}
+
+.logo {
+    /*background-color: #555577;*/
+    height: 832px;
+}
+
+.L1 {
+    top: 90px;
+    left: 970PX;
+    position: absolute;
+    color: white;
+}
+
+.Personal {
+    top: 150px;
+    left: 970px;
+    position: absolute;
+    cursor: pointer;
+}
+
+.Name {
+    width: 294px;
+    height: 41px;
+    cursor: pointer;
+}
+
+.Surname {
+    width: 294px;
+    height: 41px;
+    cursor: pointer;
+}
+
+.Number {
+    width: 294px;
+    height: 41px;
+    cursor: pointer;
+}
+
+.select {
+    width: 294px;
+    height: 41px;
+    cursor: pointer;
+}
+
+.identity {
+    top: 500px;
+}
+
+body {
+    background-color: cornflowerblue;
+    background-size: cover;
+    background-repeat: no-repeat;
+}

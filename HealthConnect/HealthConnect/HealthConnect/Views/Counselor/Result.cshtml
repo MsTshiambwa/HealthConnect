@@ -1,0 +1,36 @@
+﻿
+@{
+    ViewData["Title"] = "Result";
+    Layout = "_CounsellingPatient";
+}
+
+@if(TempData["Result"] != null)
+{
+    <div class="alert alert-success text-center">
+        <h5 class="alert-heading">Successfully applied for an appointment</h5>
+        <br>
+        <p>
+            @* You have been assigned <b>DR S Nkosi for GBV Counselling</b>
+            <br>
+            <br> *@
+            You can go back to the dashboard.
+        </p>
+        <hr />
+        <p class="text-center"><button class="btn btn-outline-success" onclick="location.href='@Url.Action("Index","Counselor")'">Dashboard</button></p>
+    </div>
+}
+else
+{
+    <div class="alert alert-danger text-center">
+        <h5 class="alert-heading">Something went wrong.</h5>
+        <p>Please try again applying for an appointment.</p>
+        <hr />
+        <p class="text-center"><button class="btn btn-outline-success" onclick="location.href='@Url.Action("Index","Counselor")'">Dashboard</button></p>
+    </div>
+    
+}
+
+
+
+
+

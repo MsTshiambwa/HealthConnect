@@ -1,0 +1,69 @@
+﻿@{
+    ViewData["Title"] = "Appointment";
+    Layout = "_CounsellingPatient";
+}
+
+@model CounselorAppointment
+@using HealthConnect.Data.Classes
+@inject IHttpContextAccessor contextAccessor
+@if (TempData["Error"] != null)
+{
+    <div class="text-center">
+        <div class="alert alert-danger">
+            <p>@TempData["Error"]</p>
+        </div>
+    </div>
+    <br />
+}
+<div class="text-center align-self-center" style="padding:10px">
+    <div class="card-header">
+        <h4><i class="fa-solid fa-calendar-days"></i> Appointment</h4>
+    </div>
+    <form asp-action="Appointment" method="post" class="card-body">
+        <div class="card-body">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="mb-3 text-start">
+                <label class="form-label" asp-for="Date"></label>
+                <input asp-for=Date type="date" class="form-control">
+                <span asp-validation-for="Date" class="text-danger"></span>
+            </div>
+            <div class="mb-3 text-start">
+                <label class="form-label" asp-for="NoPeople"></label>
+                <input asp-for=NoPeople type="number" class="form-control">
+                <span asp-validation-for="NoPeople" class="text-danger"></span>
+            </div>
+            <div class="mb-3 text-start">
+                <label class="form-label" asp-for="TypeOfCounselling"></label>
+                <select asp-for="TypeOfCounselling" class="form-control">
+                    <option>GBV Counselling</option>
+                    <option>Substance Abuse Counselling</option>
+                    <option>Wellness Counselling</option>
+                    <option>Marriage Counselling</option>
+                </select>
+                <span asp-validation-for="TypeOfCounselling" class="text-danger"></span>
+            </div>
+
+            @*<div class="mb-3 text-start">
+            <label class="form-label" asp-for="DoctorID"></label>
+            @Html.DropDownListFor(model => model.DoctorID, ViewBag.Doc as SelectList, new { @class = "form-control"})
+            </div>*@
+            <input value="@contextAccessor.HttpContext.Session.GetString("user_id")" asp-for="PatientID" hidden />
+            <input value="@Department.Counselor" asp-for="Department" hidden />
+            <input value="Pending" asp-for="Status" hidden />
+            <input value="Counselling" asp-for="Reason" hidden />
+            @*<input value="" asp-for="" hidden />*@
+        </div>
+
+        <div class="card-footer text-body-secondary">
+            <div class="row gap-4 d-md-block">
+                <button class="btn btn-primary float-start col-md-4" type="submit">Apply</button>
+                <button onclick="location.href='@Url.Action("Index","Counselor")'" class="btn btn-danger col-md-4 float-end" type="button">Back to Dashboard</button>
+
+            </div>
+        </div>
+    </form>
+
+</div>
+
+

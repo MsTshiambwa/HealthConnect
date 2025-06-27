@@ -1,0 +1,26 @@
+﻿
+@{
+    ViewData["Title"] = "Self Assessment";
+    Layout = "_CounsellingPatient";
+}
+
+<div class="text-center">
+    <h1>Self Assessment</h1><br />
+</div>
+
+<div class="card-body">
+    <p>
+        Welcome to the counselling questionnaire. Your journey towards self-discovery & personal growth begins here. This questionnaire is designed to help you better understand your thoughts, feelings, and emotions, as well as provide valuable insights for the counseling process.
+    </p>
+    <br />
+    <p>
+        Please approach this questionnaire with an open mind and honesty, as your responses will play a crucial role in tailoring the counseling experience to your unique needs. Remember, there are no right or wrong answers - this is a safe space for you to express yourself freely.
+    </p>
+    <p>
+        Rest assured that all your responses will remain confidential, and only your counselor will have access to them. This process is about supporting you, so take your time and reflect on each question thoughtfully.
+
+    </p>
+</div>
+<form method="post" asp-action="SelfAssessment">
+    <button class="btn btn-success" type="submit">Start</button>
+</form>

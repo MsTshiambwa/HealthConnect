@@ -1,0 +1,63 @@
+﻿@{
+    ViewData["Title"] = "Index";
+    Layout = "_CounsellingDoctor";
+
+}
+@inject IHttpContextAccessor contextAccessor
+@if (TempData["error"] != null)
+{
+    <div class="text-center">
+        <div class="alert alert-danger">
+            <p>@TempData["error"]</p>
+        </div>
+    </div>
+    <br />
+}
+@if (TempData["result"] != null)
+{
+    <div class="text-center">
+        <div class="alert alert-success">
+            <p>@TempData["result"]</p>
+        </div>
+    </div>
+    <br />
+}
+<div class="row">
+    <h4 class="text-center">Welcome @contextAccessor.HttpContext.Session.GetString("user_name")</h4>
+</div>
+<br />
+<br />
+<div class="row justify-content-center">
+    <div class="col-5">
+        <div class="cards1 card">
+            <div class="card-body">
+                <h4 class="text-center"><i class="fa-solid fa-comments"></i> Sessions</h4>
+                <br />
+                <div class="row justify-content-between">
+                    <div class="col-5">
+                        <a asp-action="AddSession" asp-controller="CounselorDepartment" class="btn btn-outline-primary">Add Session</a>
+                    </div>
+                    <div class="col-5">
+                        <a asp-action="ListSession" asp-controller="CounselorDepartment" class="btn btn-outline-primary">View Sessions</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-5" style="margin-left:20px">
+        <div class="card cards1">
+            <div class="card-body">
+                <h4 class="text-center"><i class="fa-solid fa-hospital-user"></i> Referrals</h4>
+                <br />
+                <div class="row justify-content-between">
+                    <div class="col-5">
+                        <a asp-action="AddReferral" asp-controller="CounselorDepartment" class="btn btn-outline-primary">Add Referrals</a>
+                    </div>
+                    <div class="col-5">
+                        <a asp-action="ListReferral" asp-controller="CounselorDepartment" class="btn btn-outline-primary">View Referrals</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

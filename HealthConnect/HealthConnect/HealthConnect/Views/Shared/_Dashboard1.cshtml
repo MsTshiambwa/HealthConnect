@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Health Connect - @ViewData["Title"] </title>
+    <link rel="stylesheet" href="~/css/Dashboard1.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" asp-append-version="true">
+
+    <script src="https://kit.fontawesome.com/c7f32021bc.js" crossorigin="anonymous"></script>
+
+</head>
+@inject IHttpContextAccessor contextAccessor
+@using HealthConnect.Data.Classes
+<body>
+    <div>
+        <div class="header">
+            <div class="Side-nav">
+                <a href="#" class="logo">
+                    <img src="~/css/logo.png" class="logo-img">
+                </a>
+                <div style="color: white;margin-top: -150px;margin-bottom: 20%;">
+                    <p>@contextAccessor.HttpContext.Session.GetString("user_name")</p>
+                </div>
+                <ul class="nav-links">
+                    @if (contextAccessor.HttpContext.Session.GetString("user_role") == Department.Counselor)
+                    {
+                        <li><a asp-action="Index" asp-controller="CounselorDepartment"><i class="fa-solid fa-house-chimney"></i><p>Home</p></a></li>
+                    }
+                    
+                    
+                    
+                </ul>
+            </div>
+
+        </div>
+    </div>
+    
+
+    <main style="min-width: 1192px;">
+        <div class="container mt-5">
+            <div style="margin-left:20%;margin-bottom:20%">
+                <br />
+                @RenderBody()
+            </div>
+        </div>
+        
+    </main>
+
+    
+</body>
+</html>

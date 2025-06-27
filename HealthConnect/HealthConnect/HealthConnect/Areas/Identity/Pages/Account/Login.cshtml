@@ -1,0 +1,54 @@
+﻿@page
+@model LoginModel
+
+@{
+    Layout = "_LoginLayout";
+
+}
+@if (TempData["Error"] != null)
+{
+    <br />
+    <br />
+    <div class="text-center row justify-content-center">
+        <div class="alert alert-danger w-50">
+            <h5>@TempData["Error"]</h5>
+        </div>
+    </div>
+}
+
+<div class="container">
+    <div>
+        <img src="~/css/rectsb.png" width="666" style="margin-left:-108px" class="logo">
+    </div>
+    <form asp-action="Login" method="post">
+        <img src="~/css/login.png" style="top: 235px;width: 219px;position: absolute;left: 1008px;">
+        @*<h2 class="L1" style="top:402px">Login</h2>*@
+
+        <div asp-validation-summary="ModelOnly" style="color:red"></div>
+        <div>
+            <input asp-for="Input.Email" class="Email" autocomplete="username" aria-required="true" />
+            <br />
+            <span asp-validation-for="Input.Email" class="Email" style="color:red;margin-top:40px"></span>
+            <br /><br />
+            <input class="form-check-input" asp-for="Input.RememberMe" hidden value="false" />
+            @*<input asp-for=EmailAddress type="email" class="Email" placeholder="Enter Email">
+            <br />
+            <span asp-validation-for="EmailAddress" class="Email" style="color:red;margin-top:40px"></span>
+            <br /><br />*@
+        </div>
+        <div>
+            <input asp-for="Input.Password" class="password" autocomplete="current-password" aria-required="true" />
+            <br />
+            <span asp-validation-for="Input.Password" class="password" style="color:red;margin-top:40px"></span>
+            <br /><br />
+            @*<input asp-for=Password class="password" type="password" placeholder="Enter Password">
+            <br />
+            <span asp-validation-for="Password" class="password" style="color:red;margin-top:40px"></span>
+
+            <br/><br/>*@
+        </div>
+
+        <button type="submit" class="btnsignin">Sign in</button>
+        <button type="button" class="btnsignin" style="margin-left:9%" onclick="location.href='@Url.Action("Index", "User" )'">Back</button>
+    </form>
+</div>

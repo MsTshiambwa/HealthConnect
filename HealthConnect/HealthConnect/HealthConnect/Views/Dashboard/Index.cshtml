@@ -1,0 +1,76 @@
+﻿@{
+    ViewData["Title"] = "Dashboard";
+    Layout = "_SystemLayout";
+}
+
+@*error message from stuff*@
+<br />
+@if (TempData["Result"] != null)
+{
+    <div class="text-center">
+        <div class="alert alert-success">
+            <p>@TempData["Result"]</p>
+        </div>
+    </div>
+}
+@if (TempData["Error"] != null)
+{
+    <div class="text-center">
+        <div class="alert alert-danger">
+            <p>@TempData["Error"]</p>
+        </div>
+    </div>
+}
+@inject IHttpContextAccessor contextAccessor
+<section>
+    <div class="top-nav">
+        <!--img src="~/css/blacklogo.png" width="300" style="margin-top:-7%" /-->
+        <a asp-action="Logout" asp-controller="User" class="btn btnpathology">Log Out</a>
+    </div>
+   @* <div class="row">
+        <div class="col-4">
+            <a asp-action="Appointments" asp-controller="Dashboard"><i class="fa-solid fa-user-plus" style="color:black"></i><p>Apply For An Appointment</p></a>
+        </div>
+        <div class="col-4">
+            <a asp-action="Appointments" asp-controller="Dashboard"><i class="fa-solid fa-user-plus"></i><p>Apply For An Appointment</p></a>
+        </div>
+    </div>*@
+    <br />
+    <div class="row">
+        <h2 class="section-heading">Welcome to Health Connect System</h2>
+
+    </div>
+    <p class="usergreeting">Hi @contextAccessor.HttpContext.Session.GetString("user_name") </p>
+    <div class="row">
+        @*<div class="column">
+            <div class="card">
+
+                <h3>Walk-In</h3>
+                <p>
+                    A walk-in clinic system offers immediate medical care without prior appointments.
+                    Patients simply arrive at the clinic and are seen by available healthcare professionals on a first-come, first-served basis. This efficient system caters to a variety of non-emergency health concerns.
+                </p>
+                <div class="text-center">
+                    <a asp-action="Index" asp-controller="" class="btn">Click here</a>
+                </div>
+            </div>
+        </div>*@
+       
+        <div class="column">
+            <div class="card">
+
+                <h3>Counselling</h3>
+                <p>
+                    Counseling within a clinic system involves a confidential and supportive interaction between a trained counselor and a patient.
+                    It aims to address emotional, psychological, or behavioral challenges, providing a safe space to discuss concerns, develop coping strategies, and set goals.
+                </p>
+                <div class="text-center">
+                    <a asp-action="Index" asp-controller="Counselor" class="btn">Click here</a>
+                </div>
+            </div>
+        </div>
+        
+
+
+    </div>
+</section>

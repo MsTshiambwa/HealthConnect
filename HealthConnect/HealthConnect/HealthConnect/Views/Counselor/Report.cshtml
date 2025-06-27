@@ -1,0 +1,49 @@
+﻿@{
+    ViewData["Title"] = "Result";
+    Layout = "_CounsellingPatient";
+}
+@model SessionType
+<div class="text-center">
+    <h2>Report</h2>
+</div>
+
+<br />
+<br />
+@if (Model != null)
+{
+    <div class="row">
+        <div class="col-4">
+            <p>
+                <h5>Date</h5>
+                @Model.Date.ToShortDateString()
+            </p>
+        </div>
+        <div class="col-4">
+            <p>
+                <h5>Counsellor Seen</h5>
+                @Model.DoctorName
+            </p>
+        </div>
+        <div class="col-4">
+            <p>
+                <h5>Type</h5>
+                @Model.CounsellingType
+            </p>
+        </div>
+    </div>
+    <br />
+
+    <div class="text-center">
+        <h4>Feedback</h4>
+    </div>
+    <br />
+    <div class="row">
+        <div class="card card-body">
+            <p>
+                @Model.Feedback
+            </p>
+        </div>
+    </div>
+}
+
+

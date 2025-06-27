@@ -1,0 +1,252 @@
+﻿
+@{
+    ViewData["Title"] = "Settings";
+    Layout = "_Dashboard";
+}
+
+@model UserDetails
+
+<div class="text-center primary-color-text mt-2">
+    <h1 class=""><i class="fa-solid fa-user"></i> User Profile</h1>
+</div>
+
+<br />
+@if(TempData["pass"] != null){
+    <div class="alert alert-success">
+        <p>@TempData["pass"]</p>
+    </div>
+    <br />
+}
+
+<div class="card" style="padding:10px">
+    <div class="card-body">
+        <div class="row">
+            <div class="col">
+                <div class="row">
+                    <div class="">
+                        <label class="form-label" asp-for="Name"></label>
+                    </div>
+                    <div class="">
+                        <input asp-for="Name" class="form-control" disabled />
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="row">
+                    <div class="">
+                        <label class="form-label" asp-for="Surname"></label>
+                    </div>
+                    <div class="">
+                        <input class="form-control" asp-for="Surname" disabled />
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="row">
+                    <div class="">
+                        <label class="form-label" asp-for="IDNumber"></label>
+                    </div>
+                    <div class="">
+                        <input asp-for="IDNumber" class="form-control" disabled  />
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="">
+                    <label class="form-label" asp-for="DateOfBirth"></label>
+                </div>
+                <div class="">
+                    <input class="form-control" value="@Model.DateOfBirth.ToShortDateString()" disabled />
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="row">
+                    <div class="">
+                        <label class="form-label" asp-for="Gender"></label>
+                    </div>
+                    <div class="">
+                        <input class="form-control" asp-for="Gender" disabled />
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="row">
+                    <div class="">
+                        <label class="form-label" asp-for="AreaCode"></label>
+                    </div>
+                    <div class="">
+                        <input class="form-control" asp-for="AreaCode" disabled />
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="row">
+                    <div class="">
+                        <label class="form-label" asp-for="Address"></label>
+                    </div>
+                    <div class="">
+                        <input class="form-control" asp-for="Address" disabled />
+                    </div>
+                </div>
+            </div>
+            
+
+        </div>
+    </div>
+</div>
+<br />
+<div class="" style="padding:10px">
+    <h4 class="card-header text-center"><i class="fa-solid fa-phone"></i>  Update Phone Number</h4>
+    <div class="card-body">
+        @if (TempData["ErrorPN"] != null)
+        {
+            <div class="row">
+                <div class="alert alert-danger">
+                    <p>@TempData["ErrorPN"]</p>
+                </div>
+                <br />
+            </div>
+        }
+        <div class="row">
+            <div class="col">
+                <label class="form-label">Old Phone Number</label>
+                <input class="form-control" asp-for="PhoneNumber" disabled />
+            </div>
+        </div><br />
+        <form asp-action="UpdatePhoneNumber" method="post">
+            <div class="row">
+                <div class="col">
+                    <div class="row">
+                        <div class="">
+                            <label class="form-label">New Phone Number</label>
+                        </div>
+                        <div class="">
+                            <input class="form-control"  type="text" name="PhoneNumber" />
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row">
+                        <div class="">
+                            <label class="form-label">Confirm New Phone Number</label>
+                        </div>
+                        <div class="">
+                            <input class="form-control" type="text" name="ConfirmPhoneNmuber" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br />
+            <div>
+                <button type="submit" class="btn btn-primary">Update Phone Number</button>
+            </div>
+        </form>
+    </div>
+</div>
+<br />
+<div class="" style="padding:10px">
+    <h4 class="card-header text-center"><i class="fa-regular fa-envelope"></i>  Update Email Address</h4>
+    <div class="card-body">
+        @if (TempData["ErrorE"] != null)
+        {
+            <div class="row">
+                <div class="alert alert-danger">
+                    <p>@TempData["ErrorE"]</p>
+                </div>
+                <br />
+            </div>
+        }
+        <div class="row">
+            <div class="col">
+                <label class="form-label">Old Email Address</label>
+                <input class="form-control" asp-for="Email"   disabled />
+            </div>
+        </div><br />
+        <form asp-action="UpdateEmail" method="post">
+            <div class="row">
+                <div class="col">
+                    <div class="row">
+                        <div class="">
+                            <label class="form-label">New Email Address</label>
+                        </div>
+                        <div class="">
+                            <input class="form-control" required type="email" name="Email" />
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row">
+                        <div class="">
+                            <label class="form-label">Confirm New Email Address</label>
+                        </div>
+                        <div class="">
+                            <input class="form-control" required type="email" name="ConfirmEmail" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br />
+            <div class="align-content-center">
+                <button type="submit" class="btn btn-primary">Update Email Address</button>
+            </div>
+        </form>
+    </div>
+</div>
+<br />
+<form asp-action="UpdatePassword" method="post">
+    <div class="" style="padding:10px">
+        <h4 class="card-header text-center"><i class="fa-solid fa-key"></i>  Update Password</h4>
+        <div class="card-body">
+            @if (TempData["ErrorP"] != null)
+            {
+                <div class="row">
+                    <div class="alert alert-danger">
+                        <p>@TempData["ErrorP"]</p>
+                    </div>
+                    <br />
+                </div>
+            }
+            <div class="row">
+                <div class="col">
+                    <label class="form-label">Enter Current Password</label>
+                    <input class="form-control" type="password" required name="OldPassword" />
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col">
+                    <div class="row">
+                        <div class="">
+                            <label class="form-label">New Password</label>
+                        </div>
+                        <div class="">
+                            <input class="form-control" required type="password" name="NewPassowrd" />
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row">
+                        <div class="">
+                            <label class="form-label">Confirm New Password</label>
+                        </div>
+                        <div class="">
+                            <input class="form-control" required type="password" name="ConfirmNewPassowrd" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br />
+            <div class="align-content-center">
+                <button type="submit" class="btn btn-primary">Update Password</button>
+            </div>
+        </div>
+    </div>
+
+</form>
+
+

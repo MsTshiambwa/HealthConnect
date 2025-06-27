@@ -1,0 +1,85 @@
+html {
+    font-size: 14px;
+    
+}
+* {
+    font-family: 'Inter', sans-serif;
+    font-family: 'Roboto', sans-serif;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+a{
+    text-decoration:none;
+}
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+
+body {
+    background-image: url(background.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin-bottom: 60px;
+}
+
+.Nav-bar {
+    margin-top: 30px;
+}
+.Register {
+    left: 1140px;
+    position: absolute;
+    cursor: pointer;
+}
+    .Register:hover {
+        color: #555575;
+    }
+
+.a1 {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 19px;
+}
+.Home {
+    left: 740px;
+    position: absolute;
+    cursor: pointer;
+}
+.logo {
+    margin-top: -50px;
+    padding-left: 70px;
+}
+.Contact {
+    left: 990px;
+    position: absolute;
+    cursor: pointer;
+}
+.About {
+    left: 870px;
+    position: absolute;
+    cursor: pointer;
+}
+.Login {
+    left: 1280px;
+    position: absolute;
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: transparent;
+    border: 2px solid white;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    margin-top: -10px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: .5s;
+}
+.text1 {
+    color:white;
+}

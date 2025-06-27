@@ -1,0 +1,45 @@
+﻿@{
+    ViewData["Title"] = "Results";
+    Layout = "_CounsellingPatient";
+
+    int count = 1;
+}
+@model List<SelfAssessment>
+<div class="text-center">
+    <h1>Results From Self Assessment</h1>
+
+</div>
+<br />
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Date</th>
+            <th scope="col">Time</th>
+            <th scope="col">Result</th>
+        </tr>
+    </thead>
+    <tbody class="table-group-divider">
+        @if (Model != null && Model.Count > 0)
+        {
+            foreach (var item in Model)
+            {
+                <tr>
+                    <th scope="row">@count</th>
+                    <td>@item.Date.ToShortDateString()</td>
+                    <td>@item.Date.ToShortTimeString()</td>
+                    <td>@item.Result</td>
+                </tr>
+                count++;
+            }
+
+        }
+        else
+        {
+            <tr>
+                <td>Try Out Our Self Assessment <a asp-action="SelfAssessment" asp-controller="Counselor">Click here</a></td>
+            </tr>
+        }
+
+    </tbody>
+</table>

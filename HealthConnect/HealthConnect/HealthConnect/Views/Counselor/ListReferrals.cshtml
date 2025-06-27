@@ -1,0 +1,48 @@
+﻿@{
+    ViewData["Title"] = "Referral";
+    Layout = "_CounsellingPatient";
+}
+@model IEnumerable<HealthConnect.Data.Classes.ReferralLetterViewModel>
+<div class="row justify-content-center">
+    <div>
+        <h1 class="text-center">Referrals</h1>
+
+    </div>
+</div>
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col">Date Given</th>
+            <th scope="col">Doctor Name</th>
+            <th scope="col">Counselling Type</th>
+            <th scope="col">Reason</th>
+            <th scope="col">Facility</th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody class="table-group-divider">
+        @if (Model != null && Model.Count() > 0)
+        {
+            foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Date.ToShortDateString()</td>
+                    <td>@item.DoctorName</td>
+                    <td>@item.CounsellingType</td>
+                    <td>@item.Reason</td>
+                    <td>@item.Facility</td>
+
+                </tr>
+            }
+
+        }
+        else
+        {
+            <tr>
+                <td>0 records found.</td>
+            </tr>
+        }
+
+    </tbody>
+</table>

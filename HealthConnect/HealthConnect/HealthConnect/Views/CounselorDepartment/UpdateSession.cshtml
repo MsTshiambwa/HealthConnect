@@ -1,0 +1,79 @@
+﻿@{
+    ViewData["Title"] = "Add Session";
+    Layout = "_CounsellingDoctor";
+
+}
+@model SessionType
+@if (TempData["error"] != null)
+{
+    <div class="text-center">
+        <div class="alert alert-danger">
+            <p>@TempData["error"]</p>
+        </div>
+    </div>
+    <br />
+}
+@if (TempData["result"] != null)
+{
+    <div class="text-center">
+        <div class="alert alert-success">
+            <p>@TempData["result"]</p>
+        </div>
+    </div>
+    <br />
+}
+<div class="row justify-content-center">
+    <h1>Update Session</h1>
+
+</div>
+<br />
+
+<div class="text-center align-self-center" style="padding:10px">
+    <div class="card-header">
+        <h4><i class="fa-solid fa-calendar-days"></i> Session</h4>
+    </div>
+    <form asp-action="UpdateSession" method="post" class="card-body">
+        <div class="card-body">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="mb-3 text-start">
+                <label class="form-label" asp-for="Date"></label>
+                <input asp-for=Date type="text" value="@DateTime.Now.ToShortDateString()" readonly class="form-control">
+                <span asp-validation-for="Date" class="text-danger"></span>
+            </div>
+            <div class="mb-3 text-start">
+                <label class="form-label" asp-for="PatientID"></label>
+                <input asp-for=PatientID type="text" class="form-control">
+                <span asp-validation-for="PatientID" class="text-danger"></span>
+            </div>
+            <div class="mb-3 text-start">
+                <label class="form-label" asp-for="CounsellingType"></label>
+                <select asp-for="CounsellingType" class="form-control">
+                    <option>GBV Counselling</option>
+                    <option>Substance Abuse Counselling</option>
+                    <option>Wellness Counselling</option>
+                    <option>Marriage Counselling</option>
+                </select>
+                <span asp-validation-for="CounsellingType" class="text-danger"></span>
+            </div>
+            <div class="mb-3 text-start">
+                <label class="form-label" asp-for="Feedback"></label>
+                <textarea asp-for=Feedback type="text" class="form-control"></textarea>
+                <span asp-validation-for="Feedback" class="text-danger"></span>
+            </div>
+            <input asp-for="DoctorID" hidden />
+            <input asp-for="DoctorName" hidden />
+            <input asp-for="PatientName" hidden />
+            <input asp-for="CounsellingSessionId" hidden />
+        </div>
+
+        <div class="card-footer text-body-secondary">
+            <div class="row gap-4 d-md-block">
+                <button class="btn btn-primary float-start col-md-4" type="submit">Update</button>
+                <button onclick="location.href='@Url.Action("Index","CounselorDepartment")'" class="btn btn-danger col-md-4 float-end" type="button">Back to Dashboard</button>
+
+            </div>
+        </div>
+    </form>
+
+</div>

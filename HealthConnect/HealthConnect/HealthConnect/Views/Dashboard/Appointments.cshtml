@@ -1,0 +1,35 @@
+﻿
+@{
+    ViewData["Title"] = "Appointments";
+    Layout = "_Dashboard";
+}
+
+<div class="text-center primary-color-text mt-2">
+    <h1 class="">@*<i class="fa-solid fa-arrow-pointer"></i>*@ Select Department</h1>
+</div>
+<br />
+
+    
+<div class="row" style="justify-content: space-evenly;">
+    <div class="col-4">
+        <div class="">
+            <div class="card-header text-center">
+                <h4><i class="fa-solid fa-comment-medical"></i> Councilling</h4>
+            </div>
+            <div class="text-center">
+                <img class="card-img-top" src="~/css/images/talking.png" style="width:100px;margin-top:5%" />
+            </div>
+
+            <div class="card-body">
+                <p class="card-text">Counseling within a clinic system involves a confidential and supportive interaction between a trained counselor and a patient.</p>
+            </div>
+            <div calss="card-footer text-center" style="display: flex;align-items: center;justify-content: center;">
+                <a asp-action="Appointment" asp-controller="Counselor" class="btn btn-success"><span class="carousel-control-next-icon"></span></a>
+            </div>
+        </div>
+    </div>
+    
+</div>
+<br />
+
+

@@ -1,0 +1,53 @@
+﻿@{
+    Layout = "_LoginLayout";
+
+}
+@if (TempData["Error"] != null)
+{
+    <br />
+    <br />
+    <div class="text-center row justify-content-center">
+        <div class="alert alert-danger w-50">
+            <h5>@TempData["Error"]</h5>
+        </div>
+    </div>
+}
+@if (TempData["success"] != null)
+{
+    <br />
+    <br />
+    <div class="text-center row justify-content-center">
+        <div class="alert alert-success w-50">
+            <h5>@TempData["success"]</h5>
+        </div>
+    </div>
+}
+
+@model HealthConnect.Data.Classes.Login
+<div class="container">
+    <div>
+        @*<img src="~/css/rectsb.png" width="666" style="margin-left:-108px" class="logo">*@
+    </div>
+    <form asp-action="Login" method="post">
+        @*<img src="~/css/login.png" style="top: 235px;width: 219px;position: absolute;left: 1008px;">*@
+        <h2 class="L1" style="top:402px">Login</h2>
+
+        <div asp-validation-summary="ModelOnly" style="color:red"></div>
+        <div>
+            <input asp-for=EmailAddress type="email" class="Email" placeholder="Enter Email">
+            <br />
+            <span asp-validation-for="EmailAddress" class="Email" style="color:red;margin-top:40px"></span>
+            <br /><br />
+        </div>
+        <div>
+            <input asp-for=Password class="password" type="password" placeholder="Enter Password">
+            <br />
+            <span asp-validation-for="Password" class="password" style="color:red;margin-top:40px"></span>
+
+            <br /><br />
+        </div>
+
+        <button type="submit" class="btnsignin">Sign in</button>
+        <button type="button" class="btnsignin" style="margin-left:9%" onclick="location.href='@Url.Action("Index", "User" )'">Back</button>
+    </form>
+</div>

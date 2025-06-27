@@ -1,0 +1,67 @@
+﻿@{
+    ViewData["Title"] = "Appointments";
+    Layout = "_CounsellingDoctor";
+}
+@if (@TempData["Error"] != null)
+{
+    <div class="alert alert-danger">
+        <p class="text-center">@TempData["Error"]</p>
+    </div>
+    <br />
+}
+@if (@TempData["Result"] != null)
+{
+    <div class="alert alert-success">
+        <p class="text-center">@TempData["Result"]</p>
+    </div>
+    <br />
+
+}
+@using HealthConnect.Data.Classes
+@model IEnumerable<AppointmentViewModel>
+<div class="row">
+    <div class="">
+        <div class="card-header text-center">
+            <h5><i class="fa-regular fa-calendar-check"></i>  Appointments</h5>
+        </div>
+        <div class="card-body">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Name and Surname</th>
+                        <th scope="col">ID Number</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Reason</th>
+                        <th scope="col">Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model != null && Model.Count() > 0)
+                    {
+                        foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.PatientName</td>
+                                <td>@item.IDNumber</td>
+                                <td>@item.Date.ToShortDateString()</td>
+                                <td>@item.Reason</td>
+                                <td>@item.Status</td>
+
+                            </tr>
+                        }
+
+                    }
+                    else
+                    {
+                        <tr>
+                            <td>No records found.</td>
+                        </tr>
+                    }
+
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<br />

@@ -1,0 +1,59 @@
+﻿@{
+    ViewData["Title"] = "List of Report";
+    Layout = "_CounsellingPatient";
+
+}
+@model List<SessionType>
+<div class="row justify-content-center">
+    <h1>List of Report(s)</h1>
+</div>
+@if (TempData["error"] != null)
+{
+    <div class="text-center">
+        <div class="alert alert-danger">
+            <p>@TempData["error"]</p>
+        </div>
+    </div>
+    <br />
+}
+<br />
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col">Date</th>
+            <th scope="col">Doctor Name</th>
+            <th scope="col">Counselling Type</th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody class="table-group-divider">
+        @if (Model != null && Model.Count > 0)
+        {
+            foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Date.ToShortDateString()</td>
+                    <td>@item.DoctorName</td>
+                    <td>@item.CounsellingType</td>
+                    <td>
+                        <form method="post" asp-action="Report">
+                            <input name="ReportID" hidden value="@item.CounsellingSessionId" />
+                            <button class="btn btn-primary">View Report</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+
+        }
+        else
+        {
+            <tr>
+                <td>0 records found.</td>
+            </tr>
+        }
+
+    </tbody>
+</table>
+
+
+

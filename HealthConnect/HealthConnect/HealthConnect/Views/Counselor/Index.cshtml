@@ -1,0 +1,172 @@
+﻿@{
+    Layout = "_CounsellingPatient";
+    ViewData["Title"] = "Index";
+}
+
+
+
+@if (TempData["appointment"] != null)
+{
+    <div class="row justify-content-center" style="display:flex;">
+        <div class="cardNotification" style="width:450px">
+            <h3 class="text-center">Notification <i class="fa-solid fa-bell"></i></h3>
+            <p class="text-center">
+                <br />
+                You have an appointment for:
+                <br />
+                <b>@TempData["reason"]</b>
+                <br />
+                @TempData["appointment"]
+            </p>
+            <div class="text-center">
+                <form asp-action="CancelApplication" asp-controller="Dashboard" method="post">
+                    <input value="@TempData["ID"]" name="ID" hidden />
+                    <button type="submit" class="btn btn-outline-danger">Cancel Appointment</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <br />
+}
+@if (TempData["Error"] != null)
+{
+    <div class="text-center">
+        <div class="alert alert-danger">
+            <p>@TempData["Error"]</p>
+        </div>
+    </div>
+    <br />
+}
+
+<div class="text-center">
+    <p style="font-size:xx-large;color:cornflowerblue">
+        We are here for you!
+        <br />
+        Welome To<br />
+        Meaningful Minds
+    </p>
+</div>
+<br />
+<br />
+<h1 style="color:cornflowerblue" class="text-center">Welcome to our Mental Health Guide</h1>
+<br />
+<p>
+    Every person wants to love a life filled with meaning and purpose. We want to feel happy and satisfied with our circumstances.  Empowered and in control of our future. However,  many people don't feel the way. Due to life experiences or unforseen circumstances,  we may end up feeling hopeless or directionless. Life may feel overwhelming , and you may at times feel confused as to how to improve your situation.
+    <br />
+    <br />
+    This is where psychologist come in. We act as guides to help people improve their mental health and resilience.  Mental health includes our emotional, psychological,  and social well-being. It affects how we think , feel, and act. It also helps determine how we handle stress,  relate to others and make choices.
+    <br />
+    <br />
+    At HealthConnect, we understand that life's challenges can sometimes feel overwhelming. That's why we're here to offer you a helping hand and a listening ear through our comprehensive counseling subsystem. Our dedicated team of qualified counselors is committed to supporting your emotional well-being and personal growth.
+</p>
+<br />
+<div class="text-center">
+    <a asp-action="SelfAssessment" asp-controller="Counselor" class="btn btn-primary">Take a mental screening test</a>
+</div>
+<br />
+<br />
+<section class="we-offer-area text-center bg-gray">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="site-heading text-center">
+                    <h2>Our <span>Services</span></h2>
+                    <h5>Discover a range of counseling services tailored to meet your unique needs:</h5>
+                </div>
+            </div>
+        </div>
+        <div class="row our-offer-items less-carousel">
+            <!-- Single Item -->
+            <div class="col-md-4 col-sm-6 equal-height">
+                <div class="item">
+                    <i class="fa-solid fa-people-group"></i>
+                    <h4>
+                        Group Counseling
+                    </h4>
+                    <p>
+                        Connect with others who share similar experiences and benefit from shared perspectives and support.
+                    </p>
+                </div>
+            </div>
+            <!-- End Single Item -->
+            <!-- Single Item -->
+            <div class="col-md-4 col-sm-6 equal-height">
+                <div class="item">
+                    <i class="fa-solid fa-people-roof"></i>
+                    <h4>Family Counseling </h4>
+                    <p>
+                        Strengthen communication and relationships within your family unit, fostering understanding and harmony.
+                    </p>
+                </div>
+            </div>
+            <!-- End Single Item -->
+            <!-- Single Item -->
+            <div class="col-md-4 col-sm-6 equal-height">
+                <div class="item">
+                    <i class="fa-regular fa-user"></i>
+                    <h4>Individual Counselling</h4>
+                    <p>
+
+                        Individual counseling is a personal opportunity to receive support and experience growth during challenging times in life.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+        <br />
+        <div class="site-heading text-center">
+            <h2>Meet Our Counselors</h2>
+            <h7>Our experienced counselors bring a wealth of knowledge and compassion to every session. With diverse backgrounds and specialties, they are equipped to guide you on your journey to self-discovery and healing.</h7>
+        </div>
+        <br />
+        <div class="row our-offer-items less-carousel">
+            <!-- Single Item -->
+            <div class="col-md-4 col-sm-6 equal-height">
+                <div class="item">
+                    <img src="~/css/dum1.png" style="width:100%" />
+                    <br />
+                    <h4>
+                        DR NS Nkosi
+                    </h4>
+
+                </div>
+            </div>
+            <!-- End Single Item -->
+            <!-- Single Item -->
+            <div class="col-md-4 col-sm-6 equal-height">
+                <div class="item">
+                    <img src="~/css/dum2.jpg" style="width:100%" />
+                    <br />
+                    <br />
+                    <br />
+                    <h4>
+                        Dr Basanth Kumar
+                    </h4>
+                </div>
+            </div>
+            <!-- End Single Item -->
+            <!-- Single Item -->
+            <div class="col-md-4 col-sm-6 equal-height">
+                <div class="item">
+                    <img src="~/css/dum3.jpeg" style="width:100%" />
+                    <br />
+                    <br />
+                    <h4>
+                        Dr. Bhavyashree U.G.
+                    </h4>
+                </div>
+            </div>
+
+        </div>
+        <br />
+        <div class="site-heading text-center">
+            <h2>Confidentiality You Can Trusts</h2>
+            <h7>Your privacy is our priority. Rest assured that all counseling sessions are strictly confidential, allowing you to open up and address your challenges with confidence.</h7>
+            <br />
+
+            <!--img src="~/css/blacklogo.png" width="400" /-->
+        </div>
+    </div>
+</section>
+
+
